@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Saya</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 50px; }
+  </style>
+</head>
+<body>
+  <h1>Halo 👋</h1>
+  <p>Ini website pertama saya</p>
+</body>
+</html>
