@@ -1,167 +1,247 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>T A X I 4 D </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAXI4D</title>
 
-  <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.6;
-    }
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
 
-    header {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 10%;
-      background:#020617;
-      position:sticky;
-      top:0;
-    }
-
-    header h1 {font-size:20px;}
-    nav a {
-      color:#38bdf8;
-      margin-left:20px;
-      text-decoration:none;
-      font-size:14px;
-    }
-
-    .hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  background: linear-gradient(to right, #0ea5e9, #6366f1);
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #020617;
   color: white;
 }
-    }
 
-    .hero-text {
-      max-width:500px;
-    }
+/* HEADER */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:#020617;
+  position:fixed;
+  width:100%;
+  z-index:10;
+}
 
-    .hero h2 {
-      font-size:42px;
-      margin-bottom:15px;
-    }
+header h1 {
+  font-size:18px;
+  letter-spacing:2px;
+}
 
-    .hero p {
-      font-size:18px;
-      margin-bottom:20px;
-    }
+nav a {
+  color:#38bdf8;
+  margin-left:20px;
+  text-decoration:none;
+  font-size:14px;
+}
 
-    .btn {
-      padding:12px 25px;
-      background:white;
-      color:#0f172a;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:bold;
-    }
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 
-    section {
-      padding:80px 10%;
-      text-align:center;
-    }
+  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover no-repeat;
+}
 
-    .features {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
+/* OVERLAY */
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    120deg,
+    rgba(2,6,23,0.95),
+    rgba(15,23,42,0.9),
+    rgba(99,102,241,0.4)
+  );
+}
 
-    .card {
-      background:#1e293b;
-      margin:15px;
-      padding:25px;
-      border-radius:10px;
-      width:260px;
-    }
+/* GLOW EFFECT */
+.hero::after {
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background: radial-gradient(circle, #38bdf8, transparent 70%);
+  filter: blur(120px);
+  top:-100px;
+  right:-100px;
+  opacity:0.6;
+}
 
-    .card h3 {margin-bottom:10px;}
+/* CONTENT */
+.hero-content {
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  animation: fadeUp 1s ease;
+}
 
-    .cta {
-      background:#6366f1;
-      color:white;
-      padding:80px 20px;
-    }
+.hero h1 {
+  font-size:56px;
+  font-weight:900;
+  margin-bottom:20px;
+  line-height:1.2;
+}
 
-    footer {
-      text-align:center;
-      padding:20px;
-      background:#020617;
-      font-size:14px;
-    }
-  </style>
+.hero h1 span {
+  color:#38bdf8;
+  text-shadow:0 0 20px rgba(56,189,248,0.8);
+}
+
+.hero p {
+  font-size:18px;
+  opacity:0.85;
+  margin-bottom:30px;
+}
+
+/* BUTTON */
+.hero-btns {
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+
+.btn {
+  padding:14px 30px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  transition:0.3s;
+}
+
+/* PRIMARY BUTTON */
+.btn.primary {
+  background:#38bdf8;
+  color:#020617;
+  box-shadow:0 0 20px rgba(56,189,248,0.6);
+}
+
+.btn.primary:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(56,189,248,1);
+}
+
+/* SECONDARY BUTTON */
+.btn.secondary {
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;
+}
+
+.btn.secondary:hover {
+  background:rgba(255,255,255,0.1);
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* SECTION */
+section {
+  padding:80px 10%;
+  text-align:center;
+}
+
+.features {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card {
+  background:#0f172a;
+  margin:15px;
+  padding:25px;
+  border-radius:10px;
+  width:260px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(56,189,248,0.3);
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  background:#020617;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>T A X I 4 D </h1>
+  <h1>TAXI4D</h1>
   <nav>
-    <a href="#fitur">Fitur</a>
-    <a href="#harga">Harga</a>
-    <a href="#contact">Kontak</a>
+    <a href="#">Fitur</a>
+    <a href="#">Harga</a>
+    <a href="#">Kontak</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h2>Solusi Profesional untuk Bisnis Anda</h2>
-  <p>Kami membantu Anda membuat website modern, cepat, dan menarik.</p>
-  <a href="#" class="btn">Mulai Sekarang</a>
-</section>
+  <div class="hero-content">
+    <h1>
+      DOMINASI DIGITAL<br>
+      <span>TAXI4D</span>
+    </h1>
 
-<section id="fitur">
-  <h2>Kenapa Pilih Kami?</h2>
+    <p>
+      Website cepat. Desain brutal. Siap gas untuk bisnis Anda.
+    </p>
 
-  <div class="features">
-    <div class="card">
-      <h3>Cepat</h3>
-      <p>Website ringan dan loading cepat.</p>
-    </div>
-
-    <div class="card">
-      <h3>Modern</h3>
-      <p>Desain kekinian dan profesional.</p>
-    </div>
-
-    <div class="card">
-      <h3>Responsive</h3>
-      <p>Tampilan bagus di HP & desktop.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn primary">🚀 Mulai Sekarang</a>
+      <a href="#" class="btn secondary">🔥 Lihat Demo</a>
     </div>
   </div>
 </section>
 
-<section id="harga">
-  <h2>Paket Harga</h2>
-
+<!-- FITUR -->
+<section>
+  <h2>Kenapa Pilih Kami?</h2>
   <div class="features">
     <div class="card">
-      <h3>Minimal Deposit</h3>
-      <p>Rp10k</p>
+      <h3>Cepat</h3>
+      <p>Website super ringan & ngebut.</p>
     </div>
-
     <div class="card">
-      <h3>Minimal Withdraw</h3>
-      <p>Rp25K</p>
+      <h3>Modern</h3>
+      <p>Desain kekinian & profesional.</p>
     </div>
-
-<section class="cta">
-  <h2>Siap Meningkatkan Bisnis Anda?</h2>
-  <p>Hubungi kami sekarang dan mulai proyek Anda.</p>
-  <br>
-  <a href="#contact" class="btn">Hubungi Kami</a>
+    <div class="card">
+      <h3>Powerful</h3>
+      <p>Siap scale untuk bisnis besar.</p>
+    </div>
+  </div>
 </section>
-    
+
+<footer>
+  <p>© 2026 TAXI4D</p>
+</footer>
+
 </body>
 </html>
+```
