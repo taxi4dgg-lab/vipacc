@@ -34,13 +34,15 @@
     }
 
     .hero {
-      padding:100px 10%;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      background: linear-gradient(to right, #0ea5e9, #6366f1);
-      color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(to right, #0ea5e9, #6366f1);
+  color: white;
+}
     }
 
     .hero-text {
@@ -113,22 +115,11 @@
   </nav>
 </header>
 
-<div class="container">
-  <h1>Solusi Profesional untuk Bisnis Anda</h1>
+<section class="hero">
+  <h2>Solusi Profesional untuk Bisnis Anda</h2>
   <p>Kami membantu Anda membuat website modern, cepat, dan menarik.</p>
-  <button>Mulai Sekarang</button>
-</div>
-
-  .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  background: linear-gradient(to right, #2b8cff, #6a5cff);
-  color: white;
-}
+  <a href="#" class="btn">Mulai Sekarang</a>
+</section>
 
 <section id="fitur">
   <h2>Kenapa Pilih Kami?</h2>
